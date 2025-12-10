@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>社区餐厅 - 在线点餐</title>
+    <!-- 引入自行编写的样式 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- 引入 Chart.js（管理端需要，首页暂时不需要） -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="app-header">
+        <h1>🍽️ 社区餐厅在线点餐</h1>
+        <p>新鲜美食，快速送达</p>
+    </header>
+
+    <main class="container">
+        <!-- 左侧菜单展示 -->
+        <section class="menu-section">
+            <!-- 库存更新提示 -->
+    <div id="stockUpdateAlert" style="display:none; background:#4CAF50; color:white; padding:0.8rem 1.2rem; border-radius:8px; margin-bottom:1.5rem; text-align:center; font-weight:600; box-shadow:0 2px 6px rgba(76,175,80,0.3);">
+        ✓ 库存已实时更新
+    </div>
+            <h2>菜单</h2>
+            <div id="menuGrid" class="menu-grid">
+                <!-- 动态生成的菜品卡片 -->
+            </div>
+        </section>
+
+        <!-- 右侧购物车 -->
+        <aside class="cart-sidebar">
+            <h2>🛒 购物车</h2>
+            <div id="cartItems" class="cart-items">
+                <p class="empty-cart">购物车为空，快去选购吧！</p>
+            </div>
+            <div class="cart-footer" id="cartFooter" style="display:none;">
+                <p>总计：<strong id="cartTotal">¥0.00</strong></p>
+                <button id="checkoutBtn" class="btn-primary">提交订单</button>
+            </div>
+        </aside>
+    </main>
+
+    <!-- 订单提交表单（简易示例） -->
+    <div id="orderFormModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>填写配送信息</h3>
+            <form id="orderForm">
+                <label>姓名：<input type="text" name="name" required></label>
+                <label>电话：<input type="tel" name="phone" required></label>
+                <label>地址：<textarea name="address" rows="3" required></textarea></label>
+                <button type="submit" class="btn-primary">确认下单</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 前端交互脚本 -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

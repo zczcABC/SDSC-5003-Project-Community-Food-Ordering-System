@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员界面 - 社区餐厅</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="app-header">
+        <h1>管理员界面</h1>
+        <nav>
+            <a href="/">返回点餐页</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- 图表区 -->
+        <section class="charts-section">
+            <div class="chart-container">
+                <h3>近30天销售额趋势</h3>
+                <canvas id="dailySalesChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>菜品类别收入占比</h3>
+                <canvas id="categoryPieChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>热销商品 TOP 10</h3>
+                <canvas id="popularBarChart"></canvas>
+            </div>
+        </section>
+
+        <!-- 订单列表 -->
+        <section class="orders-section">
+            <h2>订单管理</h2>
+            <table id="ordersTable" class="orders-table">
+                <thead>
+                    <tr>
+                        <th>订单号</th>
+                        <th>顾客</th>
+                        <th>金额</th>
+                        <th>下单时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
